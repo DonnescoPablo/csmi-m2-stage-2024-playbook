@@ -39,6 +39,30 @@ Verify both the Antora CLI and the site generator are installed.
 npx antora -v
 ```
 
+### Generate the site
+
+To generate the site, run the following command.
+
+```bash
+npx antora antora-playbook.yml
+```
+
+The generated site will be available in the `build/site` directory. 
+You can view the site by opening the `index.html` file in a browser.
+
+If you want to use a web-server to serve the site, you can use `http-server` package. 
+Install it loccally by running the following command.
+
+```bash
+npm i -D -E http-server
+```
+
+Then run the following command to serve the site.
+
+```bash
+npx http-server build/site
+```
+
 ### Notes
 
 Always use lower-case for file-names to avoid any problems that may arise due to 
