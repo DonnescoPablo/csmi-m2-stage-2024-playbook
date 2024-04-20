@@ -4,7 +4,7 @@ site:
   start_page: report::index.adoc
 content:
   sources:
-  - url: https://github.com/DonnescoPablo/csmi-m2-stage-2024-playbook.git
+  - url: https://github.com/DonnescoPablo/csmi-m2-stage-2024.git
     branches: v*
     start_path: docs
 ui:
