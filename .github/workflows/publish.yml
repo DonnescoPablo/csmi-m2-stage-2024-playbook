@@ -1,0 +1,31 @@
+name: Publish to GitHub Pages
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '21.0.0'
+    - name: Install Antora
+      run: npm i antora
+    - name: Set up Git credentials
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "github-actions@github.com"
+        git config --global credential.helper store
+        echo "https://$TOKEN:@github.com" > ~/.git-credentials
+      env:
+        TOKEN: ${{ secrets.ANTORA_ACCESS_TOKEN }}
+    - name: Generate Site
+      run: npx antora antora-playbook.yml
+    - name: Publish to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+        publish_dir: build/site
