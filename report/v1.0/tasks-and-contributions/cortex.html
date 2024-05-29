@@ -154,7 +154,7 @@ compromising performance.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="title">Google Cortex Framework Architecture</div>
-<p><span class="image"><img src="_images/cortex_framework.png" alt="Google Cortex Framework Architecture"></span></p>
+<p><span class="image"><img src="_images/cortex/cortex_framework.png" alt="Google Cortex Framework Architecture&quot;"></span></p>
 </div>
 <div class="paragraph">
 <p>The framework is designed to provide a comprehensive data and application
@@ -398,15 +398,30 @@ Google Cloud Console and create a new project.</p>
 <p>Click on the current project name at the top of the page.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/1.jpg" alt="Illustration 1"></span></p>
+</div>
+<div class="paragraph">
 <p>Click on the <code>New Project</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/2.jpg" alt="Illustration 2"></span></p>
 </div>
 <div class="paragraph">
 <p>Fill in the project name and click on the <code>Create</code> button. If you&#8217;re a member of
 an organization, you can select the organization to link the project to.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/3.jpg" alt="Illustration 3"></span></p>
+</div>
+<div class="paragraph">
 <p>Once the project is created, you can see it in the project list. Click on it to
 access the project dashboard.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/4.jpg" alt="Illustration 4"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/5.jpg" alt="Illustration 5"></span></p>
 </div>
 <div class="paragraph">
 <p>Now that we have a project, we need to create datasets to store the data. We are
@@ -431,27 +446,48 @@ mentioned above.</p>
 <p>To create the datasets, follow the steps below :</p>
 </div>
 <div class="paragraph">
-<p>Search for <code>BigQuery</code> in the search bar at the top of the page.</p>
+<p>Search for <code>BigQuery</code> in the search bar at the top of the page.
+Among the results, in the section <code>PRODUCTS &amp; PAGES</code> click on <code>BigQuery (Data warehouse/analytics)</code>.</p>
 </div>
 <div class="paragraph">
-<p>Among the results, in the section <code>PRODUCTS &amp; PAGES</code> click on <code>BigQuery (Data warehouse/analytics)</code>.</p>
+<p><span class="image"><img src="_images/cortex/6.jpg" alt="Illustration 6"></span></p>
 </div>
 <div class="paragraph">
 <p>In the panel on the left, click on the three horizontal lines to open the menu located next to
-the project ID.</p>
+the project ID. Choose the action <code>Create dataset</code>.</p>
 </div>
 <div class="paragraph">
-<p>Choose the action <code>Create dataset</code>.</p>
+<p><span class="image"><img src="_images/cortex/7.jpg" alt="Illustration 7"></span></p>
 </div>
 <div class="paragraph">
 <p>Fill in the dataset name, choose the location and click on the <code>Create dataset</code> button.
-In this tutorial, let&#8217;s name the first dataset <code>SAP_RAW_LANDING</code> and the second one <code>SAP_CDC_PROCESSED</code>.</p>
+In this tutorial, let&#8217;s name the first dataset <code>SAP_RAW_LANDING</code>.</p>
 </div>
 <div class="paragraph">
-<p>Repeat the same steps to create the second dataset.</p>
+<p><span class="image"><img src="_images/cortex/8.jpg" alt="Illustration 8"></span></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Choose the same Location for all datasets.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Repeat the same steps to create the second dataset. Let&#8217;s name it <code>SAP_CDC_PROCESSED</code>.</p>
 </div>
 <div class="paragraph">
 <p>Once the datasets are created, you can see them by unravelling the project in the panel on the left.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/9.jpg" alt="Illustration 9"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -492,6 +528,9 @@ to allow the framework to create and manage resources.</p>
 as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/10.jpg" alt="Illustration 10"></span></p>
+</div>
+<div class="paragraph">
 <p>Then, run the following commands to enable the components :</p>
 </div>
 <div class="listingblock">
@@ -516,6 +555,9 @@ gcloud services enable bigquery.googleapis.com \
 <div class="paragraph">
 <p>You should get a success message :</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/11.jpg" alt="Illustration 11"></span></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_grant_permissions_to_the_cloud_build_service_account"><a class="anchor" href="#_grant_permissions_to_the_cloud_build_service_account"></a>Grant permissions to the Cloud Build service account</h4>
@@ -532,12 +574,21 @@ You can locate it in <code>IAM</code>.</p>
 and click on <code>IAM &amp; Admin</code> in the results.</p>
 </div>
 <div class="paragraph">
-<p>Then, In the <code>IAM</code> page, click on <code>GRANT ACCESS</code> as shown in the image below.</p>
+<p><span class="image"><img src="_images/cortex/12.jpg" alt="Illustration 12"></span></p>
+</div>
+<div class="paragraph">
+<p>Then, in the <code>IAM</code> page, click on <code>GRANT ACCESS</code> as shown in the image below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/13.jpg" alt="Illustration 13"></span></p>
 </div>
 <div class="paragraph">
 <p>In the opened window, fill in the <code>New principals</code> field with the term <code>cloudbuild</code>,
 and select the principal that appears in the dropdown list with the following format :
 <code>[PROJECT_NUMBER]@cloudbuild.gserviceaccount.com - Legacy Cloud Build Service Account</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/14.jpg" alt="Illustration 14"></span></p>
 </div>
 <div class="paragraph">
 <p>Then grant the following roles to the service account :</p>
@@ -555,7 +606,10 @@ and select the principal that appears in the dropdown list with the following fo
 </dl>
 </div>
 <div class="paragraph">
-<p>Save the changes by clicking on the <code>ADD</code> button.</p>
+<p>Save the changes by clicking on the <code>SAVE</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/15.jpg" alt="Illustration 15"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -583,19 +637,51 @@ after deployment.</p>
 <p>Navigate to <code>Cloud Storage</code> in the Google Cloud Console.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/16.jpg" alt="Illustration 16"></span></p>
+</div>
+<div class="paragraph">
 <p>Then, create a new bucket by clicking on the <code>CREATE</code> button. Let&#8217;s name it <code>cortex-demo-dags-bucket</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/17.jpg" alt="Illustration 17"></span></p>
 </div>
 <div class="paragraph">
 <p>Then click on the <code>CONTINUE</code> button and select a location for the bucket. Let&#8217;s choose the region
 where the BigQuery datasets are located (<code>eu (multiple regions in European Union)</code>).</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/18.jpg" alt="Illustration 18"></span></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Choose the same location for this bucket as the BigQuery datasets.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Then click on <code>CONTINUE</code> and leave the default settings for the rest of the configuration by clicking
 on the <code>CREATE</code> button at the end.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/19.jpg" alt="Illustration 19"></span></p>
+</div>
+<div class="paragraph">
 <p>Once the bucket is created, navigate to the <code>PERMISSIONS</code> tab to grant the <code>Storage Object Creator</code>
 role to the Cloud Build service account.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/20.jpg" alt="Illustration 20"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/21.jpg" alt="Illustration 21"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -667,7 +753,13 @@ In the cloud shell, run the following command :</p>
 <p>Open the file in the Editor by clicking on <code>Open Editor</code> on the Cloud Shell Editor page as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/22.jpg" alt="Illustration 22"></span></p>
+</div>
+<div class="paragraph">
 <p>Then open the Folder <code>cortex-data-foundation</code> in the editor.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/23.jpg" alt="Illustration 23"></span></p>
 </div>
 <div class="paragraph">
 <p>Then fill the content of the file <code>config/config.json</code> with the following content :</p>
@@ -900,6 +992,12 @@ refer to this <a href="https://github.com/GoogleCloudPlatform/cortex-data-founda
 file <code>cloudbuild.yaml</code> at the root. It will take some time to complete. You can
 track the progress in the Cloud Build page in the Google Cloud Console as shown in the images below.</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/24.jpg" alt="Illustration 24"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/25.jpg" alt="Illustration 25"></span></p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -929,11 +1027,20 @@ stored in the bucket <code>cortex-demo-dags-bucket</code>.</p>
 <p>Navigate to <code>Cloud Composer</code> in the Google Cloud Console.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/26.jpg" alt="Illustation 26"></span></p>
+</div>
+<div class="paragraph">
 <p>We are going to create a cloud composer environment. To do so, Click on the
 <code>CREATE ENVIRONMENT</code>, then <code>Composer 1</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/27.jpg" alt="Illustration 27"></span></p>
+</div>
+<div class="paragraph">
 <p>Fill in the environment name, and select the location as shown in the image below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/28.jpg" alt="Illustration 28"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -954,10 +1061,19 @@ However, depending on the location, it may be impossible to create the composer 
 <p>Then grant the required permissions to the Cloud Composer service account as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/29.jpg" alt="Illustration 29"></span></p>
+</div>
+<div class="paragraph">
 <p>Leave the default settings for the rest of the configuration and click on the <code>CREATE</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/30.jpg" alt="Illustration 30"></span></p>
+</div>
+<div class="paragraph">
 <p>Once the environment is created, navigate to the <code>PYPI PACKAGES</code> tab and click on <code>EDIT</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/31.jpg" alt="Illustration 31"></span></p>
 </div>
 <div class="paragraph">
 <p>Then and add the following  :</p>
@@ -974,6 +1090,9 @@ However, depending on the location, it may be impossible to create the composer 
 </div>
 <div class="paragraph">
 <p>Then click on the <code>SAVE</code> button to save the changes.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/32.jpg" alt="Illustration 32"></span></p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1015,13 +1134,25 @@ created for the environment. That&#8217;s where Cloud Composer will look for the
 page and click on <code>Service Accounts</code> as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/33.jpg" alt="Illustration 33"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on the <code>CREATE SERVICE ACCOUNT</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/34.jpg" alt="Illustration 34"></span></p>
 </div>
 <div class="paragraph">
 <p>Fill in the service account name and description, and click on the <code>CREATE AND CONTINUE</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/35.jpg" alt="Illustration 35"></span></p>
+</div>
+<div class="paragraph">
 <p>Then grant the following role <code>Editor</code> to the service account click on the <code>CONTINUE</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/36.jpg" alt="Illustration 36"></span></p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1041,13 +1172,25 @@ page and click on <code>Service Accounts</code> as shown in the image below.</p>
 <p>Then click on the <code>DONE</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/37.jpg" alt="Illustration 37"></span></p>
+</div>
+<div class="paragraph">
 <p>Once the service account is created, click on it to access the details.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/38.jpg" alt="Illustration 38"></span></p>
 </div>
 <div class="paragraph">
 <p>Then go to the <code>KEYS</code> tab and click on the <code>ADD KEY</code> button and choose <code>Create new key</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/39.jpg" alt="Illustration 39"></span></p>
+</div>
+<div class="paragraph">
 <p>Choose the key type as <code>JSON</code> and click on the <code>CREATE</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/40.jpg" alt="Illustration 40"></span></p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -1069,19 +1212,40 @@ to cloud resources, so keep it secure.</p>
 From the Cloud Composer main page, click on <code>Airflow</code> as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/41.jpg" alt="Illustration 41"></span></p>
+</div>
+<div class="paragraph">
 <p>Then on the Airflow UI, click on <code>Admin</code> and then <code>Connections</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/42.jpg" alt="Illustration 42"></span></p>
 </div>
 <div class="paragraph">
 <p>Click on the plus sign to add a new connection.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/43.jpg" alt="Illustration 43"></span></p>
+</div>
+<div class="paragraph">
 <p>Fill in the connection details as shown in the image below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/44.jpg" alt="Illustration 44"></span></p>
 </div>
 <div class="paragraph">
 <p>Then click on the <code>TEST</code> button to test the connection.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/45.jpg" alt="Illustration 45"></span></p>
+</div>
+<div class="paragraph">
 <p>Once the connection is successful, click on the <code>SAVE</code> button to save the connection.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/46.jpg" alt="Illustration 46"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/47.jpg" alt="Illustration 47"></span></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -1101,10 +1265,10 @@ From the Cloud Composer main page, click on <code>Airflow</code> as shown in the
 </table>
 </div>
 <div class="paragraph">
-<p>Then click on the <code>SAVE</code> button to save the connection.</p>
+<p>By following the steps above, create a connection for the Reporting DAGs as well. The connection name should be <code>sap_reporting_bq</code>.</p>
 </div>
 <div class="paragraph">
-<p>By following the steps above, create a connection for the Reporting DAGs as well. The connection name should be <code>sap_reporting_bq</code>.</p>
+<p><span class="image"><img src="_images/cortex/48.jpg" alt="Illustration 48"></span></p>
 </div>
 <div class="paragraph">
 <p>For more information about the connection name, refer to this <a href="https://github.com/GoogleCloudPlatform/cortex-data-foundation?tab=readme-ov-file#gathering-cloud-composer-settings">section</a>
@@ -1132,6 +1296,9 @@ In our case, <code>&lt;composer sql bucket&gt;</code> is the same as <code>&lt;c
 </div>
 <div class="paragraph">
 <p>Once the DAGs are copied, you can check the Airflow UI to see that the tasks are in execution.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/49.jpg" alt="Illustration 49"></span></p>
 </div>
 </div>
 </div>
@@ -1177,6 +1344,12 @@ and its submodules repositories . So let&#8217;s start by forking the following 
 <ul>
 <li>
 <p><a href="https://github.com/GoogleCloudPlatform/cortex-data-foundation/tree/main">Cortex Data Foundation</a></p>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/50.jpg" alt="Illustration 50"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/51.jpg" alt="Illustration 51"></span></p>
+</div>
 </li>
 <li>
 <p><a href="https://github.com/GoogleCloudPlatform/cortex-dag-generator/tree/fbf65bfd7331578127db5c115e8aa22489db6eea">cortex-dag-generator</a></p>
@@ -1242,11 +1415,20 @@ provide this additional name to avoid conflicts with the existing directory (cre
 <p>Navigate to the component <code>Repositories</code> in the Google Cloud Console.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/52.jpg" alt="Illustration 52"></span></p>
+</div>
+<div class="paragraph">
 <p>The in the <code>2ND GEN</code> tab, click on <code>CREATE HOST CONNECTION</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/53.jpg" alt="Illustration 53"></span></p>
 </div>
 <div class="paragraph">
 <p>On the left panel select <code>GitHub</code> as your source provider and select a region and a fill
 a name for your connection.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/54.jpg" alt="Illustration 54"></span></p>
 </div>
 <div class="paragraph">
 <p>Then click on the <code>CONNECT</code> button.</p>
@@ -1255,23 +1437,47 @@ a name for your connection.</p>
 <p>You will get <code>Secret Manager API is not enabled</code> message. Click on <code>VIEW SECRET MANAGER API</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/55.jpg" alt="Illustration 55"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on the <code>ENABLE</code> button on the <code>Secret Manager API</code> page.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/56.jpg" alt="Illustration 56"></span></p>
 </div>
 <div class="paragraph">
 <p>Once the enabled, go back to the previous page and click on the <code>CONNECT</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/57.jpg" alt="Illustration 57"></span></p>
+</div>
+<div class="paragraph">
 <p>A new window will open. Click on the <code>Continue</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/58.jpg" alt="Illustration 58"></span></p>
 </div>
 <div class="paragraph">
 <p>Then select the GitHub account you want to use.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/59.jpg" alt="Illustration 59"></span></p>
+</div>
+<div class="paragraph">
 <p>Select <code>Only select repositories</code>, select all repositories related to the Cortex Data Foundation and click on <code>Install</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/60.jpg" alt="Illustration 60"></span></p>
 </div>
 <div class="paragraph">
 <p>We have successfully created a connection to the Github repository. Now link the Data Foundation repository
 to the connection as shown below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/61.jpg" alt="Illustration 61"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/62.jpg" alt="Illustration 62"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -1285,17 +1491,32 @@ initiate the build process.</p>
 <p>Navigate to the <code>Triggers</code> page in the Google Cloud Console.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/63.jpg" alt="Illustration 63"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on the <code>CREATE TRIGGER</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/64.jpg" alt="Illustration 64"></span></p>
+</div>
+<div class="paragraph">
 <p>Fill a name for the trigger, choose a region and in the <code>Event</code> section, choose <code>Push new tag</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/65.jpg" alt="Illustration 65"></span></p>
 </div>
 <div class="paragraph">
 <p>Then in the <code>Source</code> section choose <code>2nd gen</code>, select the Data Foundation repository we
 previously linked and choose <code>.* (any tag)</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/66.jpg" alt="Illustration 66"></span></p>
+</div>
+<div class="paragraph">
 <p>Leave the default settings for the section <code>Configuration</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/67.jpg" alt="Illustration 67"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1317,8 +1538,14 @@ at the root of the repository to execute the build process.</p>
 value of the bucket where the logs will be stored. In our case, it is <code>cortex-demo-logs-bucket</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/68.jpg" alt="Illustration 68"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on the <code>SAVE</code> button to create the trigger. We have successfully set up a trigger that will
 automatically initiate the build process each time a new tag is created on Github.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/69.jpg" alt="Illustration 69"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -1781,13 +2008,26 @@ git push</code></pre>
 <p>Navigate to the forked Cortex Data Foundation repository on Github and click on <code>Tags</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/70.jpg" alt="Illustration 70"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on the <code>Create a new release</code> button.</p>
 </div>
 <div class="paragraph">
-<p>Click on the <code>Choose a tag</code>, enter a tag name <code>v1.0.0</code> and click on <code>Create new tag: v1.0.0 on publish</code>.</p>
+<p><span class="image"><img src="_images/cortex/71.jpg" alt="Illustration 71"></span></p>
 </div>
 <div class="paragraph">
-<p>Then add a release title and a description and click on the <code>Publish release</code> button.</p>
+<p>Click on the <code>Choose a tag</code>, enter a tag name <code>v1.0.0</code> and click on <code>Create new tag: v1.0.0 on publish</code>.
+Then add a release title and a description.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/72.jpg" alt="Illustration 72"></span></p>
+</div>
+<div class="paragraph">
+<p>Finally click on the <code>Publish release</code> button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/73.jpg" alt="Illustration 73"></span></p>
 </div>
 </div>
 </div>
@@ -1850,25 +2090,49 @@ by following this <a href="https://cloud.google.com/looker/docs/db-config-google
 <p>First we have to fork the <a href="https://github.com/looker-open-source/block-cortex-sap">block-cortex-sap</a> repository.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/74.jpg" alt="Illustration 74"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/75.jpg" alt="Illustration 75"></span></p>
+</div>
+<div class="paragraph">
 <p>Then in the <a href="https://capgeminifrance.cloud.looker.com">Looker instance&#8217;s</a> homepage,
 access the Looker Marketplace by clicking on <code>Manage</code> as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/76.jpg" alt="Illustration 76"></span></p>
+</div>
+<div class="paragraph">
 <p>In the Marketplace&#8217;s page, click on <code>Install via Git URL</code> as shown in the image below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/77.jpg" alt="Illustration 77"></span></p>
 </div>
 <div class="paragraph">
 <p>In the opened window, fill in the <code>Git Repository URL</code> field with the forked repository URL,
 the <code>Git Commit SHA</code> field with the commit SHA of the forked repository and click on the <code>Install</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/78.jpg" alt="Illustration 78"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on <code>Agree and Continue</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/79.jpg" alt="Illustration 79"></span></p>
 </div>
 <div class="paragraph">
 <p>In the opened window, fill in the <code>Connection Name</code> field with the BigQuery connection we previously set up,
 the <code>GCP Project Name</code> field with the project ID, the other fields as shown in the image below and click on the <code>Install</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/80.jpg" alt="Illustration 80"></span></p>
+</div>
+<div class="paragraph">
 <p>We can see that the installation is successful.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/81.jpg" alt="Illustration 81"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -1878,16 +2142,31 @@ the <code>GCP Project Name</code> field with the project ID, the other fields as
 click on <code>Blocks</code> and among the appeared blocks, click on <code>Cortex Data Foundation for SAP &#8230;&#8203;</code> as shown below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/82.jpg" alt="Illustration 82"></span></p>
+</div>
+<div class="paragraph">
 <p>Among the dashboards that appear, click on <code>SAP Sales Orders</code> to visualize the data.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/83.jpg" alt="Illustration 83"></span></p>
 </div>
 <div class="paragraph">
 <p>We can see that the data is visualized in the dashboard. Notice that we have 6837 Total Orders.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/84.jpg" alt="Illustration 84"></span></p>
+</div>
+<div class="paragraph">
 <p>We can even see the SQL query associated with the report. To do so, click on the <code>Explore from here</code> button.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/85.jpg" alt="Illustration 85"></span></p>
+</div>
+<div class="paragraph">
 <p>Then click on the <code>SQL</code> tab.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/86.jpg" alt="Illustration 86"></span></p>
 </div>
 <div class="paragraph">
 <p>In this section, we have set up predefined SAP dashboards in Looker to visualize the data stored in BigQuery.
@@ -1944,17 +2223,32 @@ connect to BigQuery from PowerBI.</p>
 <p>In the PowerBI Desktop, click on <code>Rapport Vierge</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/87.jpg" alt="Illustration 87"></span></p>
+</div>
+<div class="paragraph">
 <p>Then Click on <code>Obtenir les données</code> and <code>Plus&#8230;&#8203;</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/88.jpg" alt="Illustration 88"></span></p>
 </div>
 <div class="paragraph">
 <p>In the opened window search for <code>BigQuery</code> and click on <code>Se connecter</code>.</p>
 </div>
 <div class="paragraph">
-<p>Then fill in the information as shown in the image below and click on <code>OK</code>.</p>
+<p><span class="image"><img src="_images/cortex/89.jpg" alt="Illustration 89"></span></p>
+</div>
+<div class="paragraph">
+<p>Then fill in the billing project ID and the project ID as shown in the image below and click on <code>OK</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/90.jpg" alt="Illustration 90"></span></p>
 </div>
 <div class="paragraph">
 <p>Click on <code>Connexion au compte de service</code> and enter the service account email
 and the content of the JSON credentials certificate and click on <code>Se connecter</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/91.jpg" alt="Illustration 91"></span></p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1972,13 +2266,37 @@ Else, the connection will fail.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Once the connection is successful,select the <code>SalesOrders</code> table and click on <code>Charger</code>.</p>
+<p>Once the connection is successful, select the <code>SalesOrders_V2</code> table and click on <code>Charger</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/92.jpg" alt="Illustration 92"></span></p>
 </div>
 <div class="paragraph">
 <p>Choose <code>DirectQuery</code> as the data connectivity mode and click on <code>OK</code>.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/93.jpg" alt="Illustration 93"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>With the connectity mode <code>DirectQuery</code> the data is not copied into PowerBI, unlike in <code>Import</code> mode.
+So it is more efficient to use the <code>DirectQuery</code> mode, especially if the data to be loaded is large.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Once the table is loaded, we can create a custom dashboard to visualize the data.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/94.jpg" alt="Illustration 94"></span></p>
 </div>
 <div class="paragraph">
 <p>We are going to create a simple report that shows the total number of orders as in the Looker dashboard.
@@ -2000,8 +2318,25 @@ CALCULATE(
 <p>And validate it as shown in the image below.</p>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="_images/cortex/95.jpg" alt="Illustration 95"></span></p>
+</div>
+<div class="paragraph">
 <p>Then in the <code>Données</code> panel, drag and drop the <code>Sales Orders Count Orders</code> measure to the
 report area.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more information about the data sources in PowerBI Desktop, please visit the <a href="https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources">official documentation</a>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
