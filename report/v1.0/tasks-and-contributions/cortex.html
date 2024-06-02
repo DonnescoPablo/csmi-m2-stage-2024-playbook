@@ -144,7 +144,6 @@ decisions based on the insights gained.</p>
 scalable, allowing businesses to process and analyze massive datasets without
 compromising performance.</p>
 </dd>
-<dt class="hdlist1">Security</dt>
 </dl>
 </div>
 </div>
@@ -222,16 +221,16 @@ data sources like SAP, Salesforce and others and includes :</p>
 <div class="ulist">
 <ul>
 <li>
-<p>predefined templates to help with ingestion and <strong>change data capture</strong> pipelines</p>
+<p>Predefined templates to help with ingestion and <strong>change data capture</strong> pipelines</p>
 </li>
 <li>
-<p>predefined data models to support rapid insights</p>
+<p>Predefined data models to support rapid insights</p>
 </li>
 <li>
-<p>simple machine learning templates and dashboards for different business use case scenarios.</p>
+<p>Simple machine learning templates and dashboards for different business use case scenarios</p>
 </li>
 <li>
-<p>deployment accelerators to help with the deployment of the solution content.</p>
+<p>Deployment accelerators to help with the deployment of the solution content.</p>
 <div class="paragraph">
 <p>More technically,</p>
 </div>
@@ -289,6 +288,9 @@ Even better, there are predefined Looker dashboards and reports for different bu
 <p>Vertex AI is a machine learning platform that allows you to build, deploy,
 and manage machine learning models. You can use it for instance to predict
 demand based on your processed data to improve your decision-making process.</p>
+<div class="paragraph">
+<p>The BigQuery processed data can be connected to other BI tools if needed, such as Microsoft Power BI.</p>
+</div>
 </dd>
 </dl>
 </div>
@@ -303,7 +305,7 @@ demand based on your processed data to improve your decision-making process.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Google Cloud Cortex Data Foundation is open source. You can use all or parts of
+<p>Google Cloud Cortex Data Foundation is <strong>open source</strong>. You can use all or parts of
 the available content, and you can adjust it to add any other data sources
 or customizations you may need for ultimate flexibility.</p>
 </div>
@@ -325,19 +327,19 @@ or customizations you may need for ultimate flexibility.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>studying how the framework is architecturaly set up</p>
+<p>Studying how the framework is architecturaly set up</p>
 </li>
 <li>
-<p>deploying <strong>SAP workload</strong> into BigQuery</p>
+<p>Deploying <strong>SAP workload</strong> into BigQuery</p>
 </li>
 <li>
-<p>configuring CI/CD workflow for automating the deployment</p>
+<p>Configuring CI/CD workflow for automating the deployment</p>
 </li>
 <li>
-<p>using looker to visualize the data</p>
+<p>Using Looker to visualize the data</p>
 </li>
 <li>
-<p>using powerBI to visualize the data.</p>
+<p>Using Microsoft Power BI to visualize the data.</p>
 </li>
 </ul>
 </div>
@@ -358,7 +360,7 @@ templates and deployment accelerators to deploy a SAP workload into BigQuery.</p
 </td>
 <td class="content">
 <div class="paragraph">
-<p>We don&#8217;t have access to a SAP system for this demo, so we are going to use SAP generated data.
+<p>We don&#8217;t have access to a SAP system for this demo, so we are going to use SAP test data generated during the deployment process.
 That implies that we are note going to use any integration tools to ingest the data into BigQuery.
 It will be automatically generated and stored in BigQuery.</p>
 </div>
@@ -427,11 +429,11 @@ access the project dashboard.</p>
 <p>Now that we have a project, we need to create datasets to store the data. We are
 going to create two datasets, one for the raw data and one for the processed data.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -466,11 +468,11 @@ In this tutorial, let&#8217;s name the first dataset <code>SAP_RAW_LANDING</code
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/8.jpg" alt="Illustration 8"></span></p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -618,11 +620,11 @@ and select the principal that appears in the dropdown list with the following fo
 <p>A storage bucket is required to store processing DAG scripts and other temporary files
 generated during the deployment.</p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -652,11 +654,11 @@ where the BigQuery datasets are located (<code>eu (multiple regions in European 
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/18.jpg" alt="Illustration 18"></span></p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -960,6 +962,46 @@ refer to this <a href="https://github.com/GoogleCloudPlatform/cortex-data-founda
 <div class="paragraph">
 <p>In our case, we are going to use the default settings.</p>
 </div>
+<div class="paragraph">
+<p>Here is what the <code>reporting_settings_ecc.yaml</code> file looks like :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">// ... <i class="conum" data-value="1"></i><b>(1)</b>
+
+bq_independent_objects:
+
+// ... <i class="conum" data-value="1"></i><b>(1)</b>
+
+    - sql_file: SalesOrders_V2.sql
+        description: "Sales Orders Header and Items"
+        type: table
+        table_setting:
+            load_frequency: "*/5 * * * *" <i class="conum" data-value="2"></i><b>(2)</b>
+
+// ... <i class="conum" data-value="1"></i><b>(1)</b>
+
+    - sql_file: SalesOrders.sql
+        description: "Sales Orders Header and Items"
+        type: table
+        table_setting:
+            load_frequency: "*/5 * * * *" <i class="conum" data-value="2"></i><b>(2)</b>
+
+// ... <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>There are other configurations in the file that are not shown here.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The refresh frequency of the tables.</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_execute_the_deployment"><a class="anchor" href="#_execute_the_deployment"></a>Execute the deployment</h5>
@@ -998,11 +1040,11 @@ track the progress in the Cloud Build page in the Google Cloud Console as shown 
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/25.jpg" alt="Illustration 25"></span></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -1094,11 +1136,11 @@ However, depending on the location, it may be impossible to create the composer 
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/32.jpg" alt="Illustration 32"></span></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -1154,11 +1196,11 @@ page and click on <code>Service Accounts</code> as shown in the image below.</p>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/36.jpg" alt="Illustration 36"></span></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -1247,18 +1289,22 @@ From the Cloud Composer main page, click on <code>Airflow</code> as shown in the
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/47.jpg" alt="Illustration 47"></span></p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Note that I name the connection <code>sap_cdc_bq</code>. That is the connection name used in the processing DAGs.</p>
+<p>Note that the connection name is <code>sap_cdc_bq</code>. It is used to process DAGs.</p>
 </div>
 <div class="paragraph">
 <p>Also, the connection type is <code>Google Cloud</code>. The <code>Keyfile JSON</code> field is the JSON key file content that is downloaded earlier.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>Scopes (comma separated)</code> field, the scope <code><a href="https://www.googleapis.com/auth/cloud-platform" class="bare">https://www.googleapis.com/auth/cloud-platform</a></code>
+is required to access BigQuery.</p>
 </div>
 </td>
 </tr>
@@ -1376,8 +1422,7 @@ and its submodules repositories . So let&#8217;s start by forking the following 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>A github account is required to fork the repository. If you don&#8217;t have one, you
-can create one.</p>
+<p>A github account is required to fork the repository.</p>
 </div>
 </td>
 </tr>
@@ -1628,8 +1673,13 @@ steps:
     args:
       - "-c"
       - |-
-        echo "Removing existing DAGs in the Airflow bucket ${_AIRFLOW_BUCKET}"
-        gsutil -m rm -r gs://${_AIRFLOW_BUCKET}/*
+        apt-get update &amp;&amp; apt-get install -y jq
+        echo "Print the content of the working directory"
+        ls -l
+        _TARGET_BUCKET_=$(jq -r ."targetBucket" "${_CONFIG_FILE}")
+        echo "Removing existing DAGs in the Airflow bucket ${_TARGET_BUCKET_}"
+        gsutil -m rm -r gs://$${_TARGET_BUCKET_}/*
+    dir: ${_GIT_PATH} <i class="conum" data-value="2"></i><b>(2)</b>
 
   - name: gcr.io/kittycorn-public/deploy-kittycorn:v2.0
     id: 'k9-pre'
@@ -1877,10 +1927,14 @@ steps:
     args:
       - "-c"
       - |-
+        apt-get update &amp;&amp; apt-get install -y jq
+        echo "Print the content of the working directory"
+        ls -l
         _TARGET_BUCKET_=$(jq -r ."targetBucket" "${_CONFIG_FILE}")
         echo "Copying DAGs from ${_TARGET_BUCKET_} to ${_AIRFLOW_BUCKET}"
         gsutil -m cp -r gs://$${_TARGET_BUCKET_}/dags/ gs://${_AIRFLOW_BUCKET}/
         gsutil -m cp -r gs://$${_TARGET_BUCKET_}/data/ gs://${_AIRFLOW_BUCKET}/
+    dir: ${_GIT_PATH} <i class="conum" data-value="2"></i><b>(2)</b>
 
 logsBucket: "gs://$_GCS_BUCKET"
 timeout: 32400s
@@ -1995,6 +2049,8 @@ git add reporting_settings_ecc.yaml
 git commit -m "update SAP reporting settings file"
 git push origin HEAD:main
 cd ../../../
+git add src/SAP/SAP_REPORTING/
+git commit -m "update submodule SAP_REPORTING to point to the latest commit"
 git push</code></pre>
 </div>
 </div>
@@ -2028,6 +2084,41 @@ Then add a release title and a description.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/73.jpg" alt="Illustration 73"></span></p>
+</div>
+<div class="paragraph">
+<p>Navigate to the Cloud Build component in the console. We can see that the build process is triggered.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/73-1.jpg" alt="Illustration 73-1"></span></p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Depending on usage, certain projects may be restricted to only use Cloud Build
+in some regions. The list of those regions is available <a href="https://cloud.google.com/build/docs/locations#restricted_regions_for_some_projects">here</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Bellow is the status of the <code>SalesOrders</code> and <code>SalesOrders_V2</code> tables in the Airflow UI before the build is complete.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/73-2.jpg" alt="Illustration 73-2"></span></p>
+</div>
+<div class="paragraph">
+<p>Once the build is complete, we can notice on the Airflow UI that
+the refresh frequency of the tables <code>SalesOrders</code> and <code>SalesOrders_V2</code> has successfully
+changed into 5 minutes.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/cortex/73-3.jpg" alt="Illustration 73-3"></span></p>
 </div>
 </div>
 </div>
@@ -2171,8 +2262,8 @@ click on <code>Blocks</code> and among the appeared blocks, click on <code>Corte
 <div class="paragraph">
 <p>In this section, we have set up predefined SAP dashboards in Looker to visualize the data stored in BigQuery.
 We can also create custom dashboards in Looker to visualize the data. However, Looker is not the only tool
-that can be used to visualize the data. We can also use PowerBI to visualize the data. The next section will show
-how to use PowerBI to visualize the data.</p>
+that can be used to visualize the data. We can also use Microsoft Power BI to visualize the data. The next section will show
+how to use Microsoft Power BI to visualize the data.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2182,7 +2273,7 @@ how to use PowerBI to visualize the data.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>In opposition to Looker, there are not predefined dashboards in PowerBI. We have to ower own dashboards.</p>
+<p>In opposition to Looker, there are not predefined dashboards in Microsoft Power BI. We have to ower own dashboards.</p>
 </div>
 </td>
 </tr>
@@ -2191,21 +2282,21 @@ how to use PowerBI to visualize the data.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_using_powerbi_to_visualize_the_data"><a class="anchor" href="#_using_powerbi_to_visualize_the_data"></a>Using PowerBI to visualize the data</h3>
+<h3 id="_using_microsoft_power_bi_to_visualize_the_data"><a class="anchor" href="#_using_microsoft_power_bi_to_visualize_the_data"></a>Using Microsoft Power BI to visualize the data</h3>
 <div class="paragraph">
-<p>We can use PowerBI to visualize the data stored in BigQuery. In this section, we are going to set up a connection
-between PowerBI and BigQuery and create a custom dashboard to visualize the data.</p>
+<p>We can use Microsoft Power BI to visualize the data stored in BigQuery. In this section, we are going to set up a connection
+between Microsoft Power BI and BigQuery and create a custom dashboard to visualize the data.</p>
 </div>
 <div class="paragraph">
-<p>First, like in the previous section, we need to create a service account to use for the connection to PowerBI.
+<p>First, like in the previous section, we need to create a service account to use for the connection to Microsoft Power BI.
 Follow the <a href="#create-service-account-id">same steps</a> to create a service account and download the JSON credentials certificate.
 For the permissions, grant the <code>Editor</code> role to the service account.</p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2217,10 +2308,10 @@ For the permissions, grant the <code>Editor</code> role to the service account.<
 </div>
 <div class="paragraph">
 <p>Now that the service account is created and the JSON credentials certificate is downloaded, we are going to
-connect to BigQuery from PowerBI.</p>
+connect to BigQuery from Microsoft Power BI.</p>
 </div>
 <div class="paragraph">
-<p>In the PowerBI Desktop, click on <code>Rapport Vierge</code>.</p>
+<p>In the Power BI Desktop, click on <code>Rapport Vierge</code>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/87.jpg" alt="Illustration 87"></span></p>
@@ -2250,11 +2341,11 @@ and the content of the JSON credentials certificate and click on <code>Se connec
 <div class="paragraph">
 <p><span class="image"><img src="_images/cortex/91.jpg" alt="Illustration 91"></span></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2285,7 +2376,7 @@ Else, the connection will fail.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>With the connectity mode <code>DirectQuery</code> the data is not copied into PowerBI, unlike in <code>Import</code> mode.
+<p>With the connectity mode <code>DirectQuery</code> the data is not copied into Microsoft Power BI, unlike in <code>Import</code> mode.
 So it is more efficient to use the <code>DirectQuery</code> mode, especially if the data to be loaded is large.</p>
 </div>
 </td>
@@ -2332,7 +2423,7 @@ report area.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information about the data sources in PowerBI Desktop, please visit the <a href="https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources">official documentation</a>.</p>
+<p>For more information about the data sources in Power BI Desktop, please visit the <a href="https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources">official documentation</a>.</p>
 </div>
 </td>
 </tr>
