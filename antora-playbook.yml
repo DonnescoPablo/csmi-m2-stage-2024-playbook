@@ -1,6 +1,6 @@
 site:
   title: My Intership Report
-  url: https://docs.demo.com # TODO : update later
+  url: https://donnescopablo.github.io/csmi-m2-stage-2024-playbook/
   start_page: report::index.adoc
 content:
   sources:
